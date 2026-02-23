@@ -6,9 +6,8 @@ import { Menu } from "lucide-react";
 const navLinks = [
   { label: "المميزات", href: "#features" },
   { label: "كيف يعمل", href: "#how-it-works" },
-  { label: "التسعير", href: "#pricing" },
-  { label: "آراء العملاء", href: "#testimonials" },
   { label: "الأسئلة الشائعة", href: "#faq" },
+  { label: "تواصل معنا", href: "#contact" },
 ];
 
 const Navbar = () => {
@@ -34,7 +33,7 @@ const Navbar = () => {
             </a>
           ))}
           <Button className="gradient-bg border-0 text-primary-foreground hover:opacity-90">
-            ابدأ الآن
+            انضم الآن
           </Button>
         </div>
 
@@ -58,7 +57,7 @@ const Navbar = () => {
                 </a>
               ))}
               <Button className="gradient-bg mt-4 border-0 text-primary-foreground">
-                ابدأ الآن
+                انضم الآن
               </Button>
             </div>
           </SheetContent>
