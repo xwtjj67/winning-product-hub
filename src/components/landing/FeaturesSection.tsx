@@ -1,31 +1,31 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Package, MapPin, DollarSign, Headphones, TrendingUp, Shield } from "lucide-react";
+import { Package, MapPin, Truck, Warehouse, Users, Shield } from "lucide-react";
 
 const features = [
   {
     icon: Package,
     title: "منتجات رابحة مختارة",
-    description: "فريقنا يختار لك أفضل المنتجات الرائجة والمطلوبة في السوق بعناية فائقة",
+    description: "فريقنا يختار لك أفضل المنتجات المطلوبة في السوق المغربي بعناية",
   },
   {
     icon: MapPin,
     title: "مخزون في مدينتك",
-    description: "جميع المنتجات متوفرة في مخزون محلي قريب منك لتوصيل سريع وفعال",
+    description: "منتجات متوفرة في مخزون محلي قريب منك لتوصيل سريع وفعال",
   },
   {
-    icon: DollarSign,
-    title: "عمولات مجزية",
-    description: "احصل على عمولات تنافسية على كل عملية بيع ناجحة تقوم بها",
+    icon: Truck,
+    title: "شحن سريع و COD",
+    description: "خدمة شحن متكاملة مع الدفع عند الاستلام في جميع المدن",
   },
   {
-    icon: Headphones,
-    title: "دعم متواصل",
-    description: "فريق دعم متخصص يساعدك في كل خطوة من رحلتك في التجارة الإلكترونية",
+    icon: Warehouse,
+    title: "خدمات تخزين",
+    description: "نوفر لك مساحات تخزين احترافية لإدارة مخزونك بكفاءة",
   },
   {
-    icon: TrendingUp,
-    title: "تتبع الأداء",
-    description: "لوحة تحكم متقدمة لتتبع مبيعاتك وأرباحك وأدائك بشكل مباشر",
+    icon: Users,
+    title: "نظام عمولات للوكلاء",
+    description: "انضم كوكيل واحصل على عمولتك على كل عملية بيع ناجحة",
   },
   {
     icon: Shield,
@@ -47,7 +47,7 @@ const FeaturesSection = () => {
             لماذا <span className="gradient-text">CodConnect</span>؟
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            كل ما تحتاجه للنجاح في التجارة الإلكترونية في منصة واحدة
+            بنية تحتية متكاملة للتوريد والشحن في منصة واحدة
           </p>
         </div>
 
@@ -55,7 +55,7 @@ const FeaturesSection = () => {
           {features.map(({ icon: Icon, title, description }) => (
             <Card
               key={title}
-              className="group border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:glow-purple"
+              className="group glass transition-all duration-300 hover:border-primary/40 hover:glow-teal"
             >
               <CardContent className="p-6">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
