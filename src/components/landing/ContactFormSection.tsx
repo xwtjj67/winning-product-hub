@@ -101,17 +101,14 @@ const ContactFormSection = () => {
 
               <div className="space-y-2">
                 <Label htmlFor="city">المدينة</Label>
-                <select
+                <Input
                   id="city"
+                  placeholder="أدخل اسم مدينتك"
                   value={form.city}
                   onChange={(e) => setForm({ ...form, city: e.target.value })}
-                  className="flex h-10 w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                >
-                  <option value="">اختر مدينتك</option>
-                  {MOROCCAN_CITIES.map((city) => (
-                    <option key={city} value={city}>{city}</option>
-                  ))}
-                </select>
+                  className="bg-background/50"
+                  maxLength={50}
+                />
                 {errors.city && <p className="text-sm text-destructive">{errors.city}</p>}
               </div>
 
