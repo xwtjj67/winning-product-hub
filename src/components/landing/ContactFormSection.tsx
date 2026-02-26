@@ -29,10 +29,30 @@ const ContactFormSection = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validate()) {
+    if (!validate()) return;
+
+    setLoading(true);
+    setSubmitError("");
+
+    try {
+      const API_URL = import.meta.env.VITE_API_URL || "https://yourdomain.com/api";
+      const res = await fetch(`${API_URL}/leads`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) throw new Error("فشل في إرسال الطلب");
       setSubmitted(true);
+    } catch {
+      setSubmitError("حدث خطأ أثناء الإرسال. الرجاء المحاولة مرة أخرى.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -112,9 +132,13 @@ const ContactFormSection = () => {
                 {errors.city && <p className="text-sm text-destructive">{errors.city}</p>}
               </div>
 
-              <Button type="submit" className="w-full gradient-bg gap-2 border-0 text-primary-foreground hover:opacity-90" size="lg">
+              {submitError && (
+                <p className="text-sm text-destructive text-center">{submitError}</p>
+              )}
+
+              <Button type="submit" disabled={loading} className="w-full gradient-bg gap-2 border-0 text-primary-foreground hover:opacity-90" size="lg">
                 <Send className="h-5 w-5" />
-                إرسال الطلب
+                {loading ? "جاري الإرسال..." : "إرسال الطلب"}
               </Button>
             </form>
           </CardContent>
